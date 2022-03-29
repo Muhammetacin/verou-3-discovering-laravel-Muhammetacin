@@ -10,7 +10,7 @@
         @csrf
 
         <label for="name">Name:</label>
-        <input type="text" name="name" id="name"><br>
+        <input type="text" name="name" id="name" value="{{ old('name') }}"><br>
 
         @error('name')
             <p class="text-danger mb-0">{{ $message }}</p>
@@ -18,7 +18,7 @@
 
         <br>
         <label for="email">Email:</label>
-        <input type="text" name="email" id="email"><br>
+        <input type="text" name="email" id="email" value="{{ old('email') }}"><br>
 
         @error('email')
             <p class="text-danger mb-0">{{ $message }}</p>
