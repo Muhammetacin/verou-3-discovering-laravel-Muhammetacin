@@ -12,7 +12,7 @@
     <title>Laravel Introduction</title>
 </head>
 <body>
-    <div class="container">
+    <div class="container mt-5 pt-3">
         @include('layouts._partials.header')
 
         @yield('home')
@@ -25,7 +25,7 @@
     </div>
 
     @if(session()->has('success'))
-        <div class="text-center fixed-bottom bg-success text-white">
+        <div class="text-center fixed-top bg-success text-white">
             <p class="pt-3">{{ session('success') }}</p>
         </div>
     @endif
