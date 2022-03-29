@@ -14,12 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[HelloWorldController::class, 'getHome'])->name('home');
 
-Route::get('/helloworld',[HelloWorldController::class, 'showTitle'])->name('home');
-
-Route::get('/mywelcomepage',[HelloWorldController::class, 'getWelcomePage'])->name('welcome');
+Route::get('/welcome',[HelloWorldController::class, 'getWelcomePage'])->name('welcome');
 
 Route::get('/about',[HelloWorldController::class, 'getAboutPage'])->name('about');

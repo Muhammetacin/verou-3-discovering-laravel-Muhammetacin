@@ -7,12 +7,12 @@ use Illuminate\Http\Request;
 class HelloWorldController extends Controller
 {
     //
-    public function showTitle() {
-        return view('helloworld');
+    public function getHome() {
+        return view('home');
     }
 
     public function getWelcomePage() {
-        return view('mywelcome');
+        return view('welcome');
     }
 
     public function getAboutPage() {

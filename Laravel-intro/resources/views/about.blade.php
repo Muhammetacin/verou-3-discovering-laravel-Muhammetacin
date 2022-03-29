@@ -1,15 +1,11 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>About me page</title>
-</head>
-<body>
-    <h1>About me page</h1>
-    <button><a href="{{ route('home') }}">Back to home</a></button>
-    <button><a href="{{ route('welcome') }}">Welcome</a></button>
-</body>
-</html>
+@extends('layouts.app')
+
+@section('about')
+    <h3>You never thought about these things, did you?</h3>
+    <ul>
+        <li>A first item</li>
+        <li>Second item</li>
+        <li>Third and best item</li>
+    </ul>
+@endsection
+
