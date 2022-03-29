@@ -28,5 +28,9 @@ class HomeController extends Controller
            'name' => 'required|string',
            'email' => 'required|email',
         ]);
+
+        session()->flash('success', 'Thanks for the data. I will use it for research purposes');
+
+        return redirect('/');
     }
 }

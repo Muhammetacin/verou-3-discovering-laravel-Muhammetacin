@@ -23,5 +23,11 @@
 
         @include('layouts._partials.footer')
     </div>
+
+    @if(session()->has('success'))
+        <div class="text-center fixed-bottom bg-success text-white">
+            <p class="pt-3">{{ session('success') }}</p>
+        </div>
+    @endif
 </body>
 </html>
