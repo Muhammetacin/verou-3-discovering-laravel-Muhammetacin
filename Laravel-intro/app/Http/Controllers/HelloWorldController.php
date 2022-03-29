@@ -11,5 +11,11 @@ class HelloWorldController extends Controller
         return view('helloworld');
     }
 
+    public function getWelcomePage() {
+        return view('mywelcome');
+    }
 
+    public function getAboutPage() {
+        return view('about');
+    }
 }
