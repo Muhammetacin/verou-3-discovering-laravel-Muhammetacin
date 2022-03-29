@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\HelloWorldController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,8 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',[HelloWorldController::class, 'getHome'])->name('home');
+Route::get('/',[HomeController::class, 'getHome'])->name('home');
 
-Route::get('/welcome',[HelloWorldController::class, 'getWelcomePage'])->name('welcome');
+Route::get('/welcome',[HomeController::class, 'getWelcomePage'])->name('welcome');
 
-Route::get('/about',[HelloWorldController::class, 'getAboutPage'])->name('about');
+Route::get('/about',[HomeController::class, 'getAboutPage'])->name('about');
+
+Route::post('/welcome', [HomeController::class, 'getUserDataForm']);
