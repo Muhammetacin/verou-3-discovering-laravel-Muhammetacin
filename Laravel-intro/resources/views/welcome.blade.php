@@ -25,6 +25,36 @@
         @enderror
 
         <br>
+        <label for="street">Street:</label>
+        <input type="text" name="street" id="street" value="{{ old('street') }}">
+
+        @error('street')
+            <p class="text-danger mb-0">{{ $message }}</p>
+        @enderror
+
+        <label for="number">Number:</label>
+        <input type="number" name="number" id="number" value="{{ old('number') }}"><br>
+
+        @error('number')
+            <p class="text-danger mb-0">{{ $message }}</p>
+        @enderror
+
+        <br>
+        <label for="city">City:</label>
+        <input type="text" name="city" id="city" value="{{ old('city') }}">
+
+        @error('city')
+            <p class="text-danger mb-0">{{ $message }}</p>
+        @enderror
+
+        <label for="country">Country:</label>
+        <input type="text" name="country" id="country" value="{{ old('country') }}"><br>
+
+        @error('country')
+            <p class="text-danger mb-0">{{ $message }}</p>
+        @enderror
+
+        <br>
         <input type="submit" value="Take my data">
     </form>
 

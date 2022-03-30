@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Address;
 use App\Models\Visitor;
 use Illuminate\Http\Request;
 
@@ -29,8 +30,12 @@ class HomeController extends Controller
     public function getUserDataForm(Request $request)
     {
         $request->validate([
-           'name' => 'required|string',
-           'email' => 'required|email',
+            'name' => 'required|string',
+            'email' => 'required|email',
+            'street' => 'string',
+            'number' => 'numeric',
+            'city' => 'string',
+            'country' => 'string'
         ]);
 
         $this->saveUserData($request);
@@ -42,10 +47,27 @@ class HomeController extends Controller
 
     private function saveUserData(Request $request)
     {
-        Visitor::create([
+        $visitor = Visitor::insert([
             'name' => $request->name,
-            'email' => $request->email
+            'email' => $request->email,
         ]);
+
+//        Address::create([
+//            'visitor_id' => $visitor->id,
+//            'street' => $request->street,
+//            'number' => $request->number,
+//            'city' => $request->city,
+//            'country' => $request->country,
+//        ]);
+
+        Address::insert([
+            'visitor_id' => $visitor->id,
+            'street' => $request->street,
+            'number' => $request->number,
+            'city' => $request->city,
+            'country' => $request->country,
+        ]);
+
 //        $visitor = new Visitor;
 //        $visitor->name = $request->name;
 //        $visitor->email = $request->email;
