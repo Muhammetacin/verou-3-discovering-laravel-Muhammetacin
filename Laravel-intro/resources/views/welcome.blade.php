@@ -28,4 +28,25 @@
         <input type="submit" value="Take my data">
     </form>
 
+    <div class="pt-5">
+        <h2>Visitors</h2>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach($visitors as $visitor)
+                <tr>
+                    <th scope="row">{{ $visitor->id }}</th>
+                    <td>{{ $visitor->name }}</td>
+                    <td>{{ $visitor->email }}</td>
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
+    </div>
 @endsection

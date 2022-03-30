@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Visitor;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -14,7 +15,10 @@ class HomeController extends Controller
 
     public function getWelcomePage()
     {
-        return view('welcome');
+        $visitors = Visitor::get();
+//        dd($visitors);
+
+        return view('welcome', compact('visitors'));
     }
 
     public function getAboutPage()
@@ -29,8 +33,22 @@ class HomeController extends Controller
            'email' => 'required|email',
         ]);
 
-        session()->flash('success', 'Thanks for the data. I will use it for research purposes');
+        $this->saveUserData($request);
+
+        session()->flash('success', 'Thanks for the data. I will use it for research purposes.');
 
         return redirect('/');
+    }
+
+    private function saveUserData(Request $request)
+    {
+        Visitor::create([
+            'name' => $request->name,
+            'email' => $request->email
+        ]);
+//        $visitor = new Visitor;
+//        $visitor->name = $request->name;
+//        $visitor->email = $request->email;
+//        $visitor->save();
     }
 }
