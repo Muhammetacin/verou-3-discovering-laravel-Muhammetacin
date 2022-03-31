@@ -16,8 +16,9 @@ class HomeController extends Controller
 
     public function getWelcomePage()
     {
-        $visitors = Visitor::get();
-//        dd($visitors);
+//        $visitors = Visitor::get();
+        $visitors = Visitor::with('address')->get();
+
 
         return view('welcome', compact('visitors'));
     }

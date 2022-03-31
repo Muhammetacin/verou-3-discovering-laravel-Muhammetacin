@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('visitor_id')->constrained()->nullable(false);
             $table->string('street');
-            $table->decimal('number');
+            $table->integer('number');
             $table->string('city');
             $table->string('country');
             $table->timestamps();

@@ -15,4 +15,9 @@ class Visitor extends Model
      * @var array
      */
     protected $fillable = ['name', 'email'];
+
+    public function address()
+    {
+        return $this->hasOne(Address::class);
+    }
 }
