@@ -19,6 +19,7 @@ class HomeController extends Controller
 //        $visitors = Visitor::get();
         $visitors = Visitor::with('address')->get();
 
+//        clock(Visitor::with('address')->where('id', 2)->first());
 
         return view('welcome', compact('visitors'));
     }
@@ -39,14 +40,14 @@ class HomeController extends Controller
             'country' => 'string'
         ]);
 
-        $this->saveUserData($request);
+        $this->saveVisitorData($request);
 
         session()->flash('success', 'Thanks for the data. I will use it for research purposes.');
 
         return redirect('/');
     }
 
-    private function saveUserData(Request $request)
+    private function saveVisitorData(Request $request)
     {
         $visitor = Visitor::create([
             'name' => $request->name,
@@ -61,17 +62,24 @@ class HomeController extends Controller
 //            'country' => $request->country,
 //        ]);
 
-        Address::insert([
-            'visitor_id' => $visitor->id,
-            'street' => $request->street,
-            'number' => $request->number,
-            'city' => $request->city,
-            'country' => $request->country,
-        ]);
+        clock($visitor->id);
+        $this->saveVisitorAddress($visitor->id, $request);
+
 
 //        $visitor = new Visitor;
 //        $visitor->name = $request->name;
 //        $visitor->email = $request->email;
 //        $visitor->save();
+    }
+
+    private function saveVisitorAddress(int $id, Request $request)
+    {
+        Address::insert([
+            'visitor_id' => $id,
+            'street' => $request->street,
+            'number' => $request->number,
+            'city' => $request->city,
+            'country' => $request->country,
+        ]);
     }
 }
