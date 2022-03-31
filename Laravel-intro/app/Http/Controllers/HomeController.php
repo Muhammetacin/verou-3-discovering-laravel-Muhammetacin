@@ -47,7 +47,7 @@ class HomeController extends Controller
 
     private function saveUserData(Request $request)
     {
-        $visitor = Visitor::insert([
+        $visitor = Visitor::create([
             'name' => $request->name,
             'email' => $request->email,
         ]);

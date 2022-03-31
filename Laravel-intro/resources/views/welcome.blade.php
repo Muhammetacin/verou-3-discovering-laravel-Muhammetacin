@@ -9,52 +9,58 @@
     <form action="" method="post">
         @csrf
 
-        <label for="name">Name:</label>
-        <input type="text" name="name" id="name" value="{{ old('name') }}"><br>
-
-        @error('name')
+        <div class="mb-3 w-25">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" name="name" id="name" placeholder="Jane Doe" value="{{ old('name') }}">
+            @error('name')
             <p class="text-danger mb-0">{{ $message }}</p>
-        @enderror
+            @enderror
+        </div>
 
-        <br>
-        <label for="email">Email:</label>
-        <input type="text" name="email" id="email" value="{{ old('email') }}"><br>
-
-        @error('email')
+        <div class="mb-3 w-25">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" name="email" id="email" placeholder="Janedoe@email.com" value="{{ old('email') }}">
+            @error('email')
             <p class="text-danger mb-0">{{ $message }}</p>
-        @enderror
+            @enderror
+        </div>
 
-        <br>
-        <label for="street">Street:</label>
-        <input type="text" name="street" id="street" value="{{ old('street') }}">
+        <div class="mb-3 w-75 d-flex">
+            <div class="me-3 mb-3 w-25">
+                <label for="street" class="form-label">Street</label>
+                <input type="text" class="form-control" id="street" name="street" placeholder="Wallstreet" value="{{ old('street') }}">
+                @error('street')
+                <p class="text-danger mb-0">{{ $message }}</p>
+                @enderror
+            </div>
 
-        @error('street')
-            <p class="text-danger mb-0">{{ $message }}</p>
-        @enderror
+            <div class="mb-3 w-25">
+                <label for="number" class="form-label">Number</label>
+                <input type="number" class="form-control" id="number" name="number" placeholder="915" value="{{ old('number') }}">
+                @error('number')
+                <p class="text-danger mb-0">{{ $message }}</p>
+                @enderror
+            </div>
+        </div>
 
-        <label for="number">Number:</label>
-        <input type="number" name="number" id="number" value="{{ old('number') }}"><br>
+        <div class="mb-3 w-75 d-flex">
+            <div class="me-3 mb-3 w-25">
+                <label for="city" class="form-label">City</label>
+                <input type="text" class="form-control" id="city" name="city" placeholder="Gent" value="{{ old('city') }}">
+                @error('city')
+                <p class="text-danger mb-0">{{ $message }}</p>
+                @enderror
+            </div>
 
-        @error('number')
-            <p class="text-danger mb-0">{{ $message }}</p>
-        @enderror
+            <div class="mb-3 w-25">
+                <label for="country" class="form-label">Country</label>
+                <input type="text" class="form-control" id="country" name="country" placeholder="915" value="{{ old('country') }}">
+                @error('country')
+                <p class="text-danger mb-0">{{ $message }}</p>
+                @enderror
+            </div>
+        </div>
 
-        <br>
-        <label for="city">City:</label>
-        <input type="text" name="city" id="city" value="{{ old('city') }}">
-
-        @error('city')
-            <p class="text-danger mb-0">{{ $message }}</p>
-        @enderror
-
-        <label for="country">Country:</label>
-        <input type="text" name="country" id="country" value="{{ old('country') }}"><br>
-
-        @error('country')
-            <p class="text-danger mb-0">{{ $message }}</p>
-        @enderror
-
-        <br>
         <input type="submit" value="Take my data">
     </form>
 
