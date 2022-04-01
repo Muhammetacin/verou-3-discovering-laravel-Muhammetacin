@@ -67,7 +67,7 @@
             </div>
         </div>
 
-        <input type="submit" class="btn btn-primary" value="Take my data">
+        <input type="submit" value="Take my data">
     </form>
 
     <div class="pt-5">

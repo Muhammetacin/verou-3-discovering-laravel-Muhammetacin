@@ -21,7 +21,8 @@ class HomeController extends Controller
 
 //        clock(Visitor::with('address')->where('id', 2)->first());
 
-        return view('welcome', compact('visitors'));
+//        return view('welcome', compact('visitors'));
+        return view('welcome_tailwind', compact('visitors'));
     }
 
     public function getAboutPage()

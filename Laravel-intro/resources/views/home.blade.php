@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('home')
-    <h2>Hello world!</h2>
-    <p>It may look messy but don't worry. I will fix it soon. This is the greeting from the developer. Hi!</p>
+    <div class="flex flex-col gap-y-16 text-center">
+        <h2 class="text-8xl">Hello Laravel!</h2>
+        <p class="text-lg">This is the greeting from the developer. <strong>Hi!</strong></p>
+    </div>
 @endsection
