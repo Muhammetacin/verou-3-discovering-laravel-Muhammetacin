@@ -35,7 +35,7 @@ class HomeController extends Controller
         $request->validate([
             'name' => 'required|string',
             'email' => 'required|email',
-            'street' => 'string',
+            'street' => 'required|string',
             'number' => 'numeric',
             'city' => 'string',
             'country' => 'string'

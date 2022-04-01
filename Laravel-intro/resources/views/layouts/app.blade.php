@@ -14,6 +14,7 @@
     <title>Laravel Introduction</title>
 </head>
 <body>
+{{--    <div class="flex flex-col items-center justify-between content-start min-h-screen">--}}
     <div class="flex flex-col items-center justify-between min-h-screen">
         @include('layouts._partials.header')
 
