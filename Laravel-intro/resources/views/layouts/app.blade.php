@@ -14,7 +14,13 @@
     <title>Laravel Introduction</title>
 </head>
 <body>
-{{--    <div class="flex flex-col items-center justify-between content-start min-h-screen">--}}
+
+    @if(session()->has('success'))
+        <div class="bg-green-800 text-center text-white">
+            <p class="py-3">{{ session('success') }}</p>
+        </div>
+    @endif
+
     <div class="flex flex-col items-center justify-between min-h-screen">
         @include('layouts._partials.header')
 
@@ -29,10 +35,5 @@
         @include('layouts._partials.footer')
     </div>
 
-    @if(session()->has('success'))
-        <div class="text-center fixed-top bg-success text-white">
-            <p class="pt-3">{{ session('success') }}</p>
-        </div>
-    @endif
 </body>
 </html>
