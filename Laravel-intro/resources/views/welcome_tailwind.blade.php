@@ -87,28 +87,65 @@
         </div>
     </form>
 
-    <div class="pt-5">
-        <h2>Visitors</h2>
-        <table class="table">
-            <thead>
+
+
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg my-10">
+        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
-                <th scope="col">#</th>
-                <th scope="col">Name</th>
-                <th scope="col">Email</th>
-                <th scope="col">Street & number</th>
-                <th scope="col">City</th>
-                <th scope="col">Country</th>
+                <th scope="col" class="px-6 py-3">
+                    #
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Name
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Email
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Street
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    City
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Country
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    <span class="sr-only">Edit</span>
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    <span class="sr-only">Delete</span>
+                </th>
             </tr>
             </thead>
             <tbody>
             @foreach($visitors as $visitor)
-                <tr>
-                    <th scope="row">{{ $visitor->id }}</th>
-                    <td>{{ $visitor->name }}</td>
-                    <td>{{ $visitor->email }}</td>
-                    <td>{{ $visitor->address->street }}, {{ $visitor->address->number }}</td>
-                    <td>{{ $visitor->address->city }}</td>
-                    <td>{{ $visitor->address->country }}</td>
+                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                        {{ $visitor->id }}
+                    </th>
+                    <td class="px-6 py-4">
+                        {{ $visitor->name }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ $visitor->email }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ $visitor->address->street }}, {{ $visitor->address->number }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ $visitor->address->city }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ $visitor->address->country }}
+                    </td>
+                    <td class="px-6 py-4 text-right">
+                        <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                    </td>
+                    <td class="px-6 py-4 text-right">
+                        <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</a>
+                    </td>
                 </tr>
             @endforeach
             </tbody>
